@@ -51,6 +51,7 @@ func set_direction() -> bool :
 	
 	
 func update_animation() -> void:
+	print("test")
 	animated_sprite_2d.play(state + "_" + anim_direc())
 	
 func anim_direc() -> String:
