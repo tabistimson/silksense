@@ -57,6 +57,7 @@ func update_animation() -> void:
 func anim_direc() -> String:
 	if cardinal_direction == Vector2.DOWN:
 		return "down"
+		print("down")
 	elif cardinal_direction == Vector2.UP:
 		return "up"
 	else:
