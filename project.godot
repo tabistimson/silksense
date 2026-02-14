@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Silkmer"
-run/main_scene="res://player/player.tscn"
+run/main_scene="res://levels/demo.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 
 [editor]

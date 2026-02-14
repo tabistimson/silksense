@@ -8,14 +8,23 @@ func _ready():
 	process_mode = Node.PROCESS_MODE_DISABLED #makes node disabled until initialized
 	pass
 	
+# these functions run everything
 func _process(delta):
 	ChangeState(current_state.Process(delta))
+	pass
+	
+func _physics_process(delta):
+	ChangeState(current_state.Physics(delta))
+	pass
+	
+func _unhandled_input(event):
+	ChangeState(current_state.HandleInput(event))
 	pass
 	
 func Initialize(_player : Player) -> void:
 	states = []
 	
-	for c in get_children(): #for each node idle and walk
+	for c in get_children(): #for each node eg idle and walk
 		if c is State:
 			states.append(c)
 		

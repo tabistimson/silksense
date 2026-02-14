@@ -1,11 +1,11 @@
 #Blueprint for future states 
-class_name State extends Node
+class_name State_Idle extends State
 
-# shared among all states 
-static var player: Player
+@onready var walk: State = $"../walk"
 
 ## what happens when the player enters this state
 func Enter() -> void:
+	player.update_animation("idle")
 	pass
 	
 func Exit() -> void:
@@ -13,6 +13,9 @@ func Exit() -> void:
 	
 #returning a state eg can change into walk state 
 func Process(_delta : float) -> State:
+	if player.direction != Vector2.ZERO:
+		return walk
+	player.velocity = Vector2.ZERO
 	return null
 	
 func Physics(_delta :float) -> State:
