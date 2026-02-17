@@ -14,6 +14,11 @@ config/name="Silkmer"
 run/main_scene="res://levels/demo.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 
+[display]
+
+window/size/viewport_width=3456
+window/size/viewport_height=1944
+
 [editor]
 
 version_control/plugin_name="GitPlugin"

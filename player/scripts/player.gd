@@ -12,8 +12,10 @@ func _ready():
 
 func _process(delta):
 	# Get the input direction and handle the movement/deceleration.
-	direction.y = Input.get_axis("up","down")
-	direction.x = Input.get_axis("left", "right")
+	direction = Vector2(
+		Input.get_axis("left", "right"),
+		Input.get_axis("up","down")
+	).normalized() #prevents fast diagonal movement so that total mag !> 1 
 	pass
 
 func _physics_process(delta: float) -> void:
@@ -45,7 +47,6 @@ func update_animation(state : String) -> void:
 func anim_direc() -> String:
 	if cardinal_direction == Vector2.DOWN:
 		return "down"
-		print("down")
 	elif cardinal_direction == Vector2.UP:
 		return "up"
 	else:

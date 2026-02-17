@@ -1,0 +1,208 @@
+[gd_scene load_steps=7 format=3 uid="uid://2uuwx015ta34"]
+
+[ext_resource type="Texture2D" uid="uid://ut4mkvf1tfa" path="res://assets/battle scenes/simple-background-backgrounds-passion-simple-1-5c9b95bd34713.png" id="1_hekuk"]
+[ext_resource type="Texture2D" uid="uid://ce4dsy0eqgwpr" path="res://assets/battle scenes/Dragonair.webp" id="2_mqby7"]
+[ext_resource type="FontFile" uid="uid://crg0m6t5ftyak" path="res://assets/fonts/PixelOperator8.ttf" id="3_162bw"]
+[ext_resource type="Texture2D" uid="uid://ceeqsgf3cu3w1" path="res://assets/battle scenes/8fe6533c9d017a28e07f4e1090d79591.jpg" id="4_d4iwf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l3qth"]
+bg_color = Color(0.319703, 0.745308, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cy1k0"]
+bg_color = Color(1, 0.284597, 0.560101, 1)
+
+[node name="Control" type="Control"]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 0.0270958
+offset_bottom = 0.0270996
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.878499, 0.878499)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+scale = Vector2(1.81016, 1.84127)
+texture = ExtResource("1_hekuk")
+
+[node name="enemy" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 2019.21
+offset_top = 30.6666
+offset_right = 2275.21
+offset_bottom = 286.667
+scale = Vector2(2.98013, 3.16421)
+texture = ExtResource("2_mqby7")
+
+[node name="playerSprite" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 299.128
+offset_top = 756.564
+offset_right = 555.128
+offset_bottom = 1012.56
+scale = Vector2(3.65742, 3.59671)
+texture = ExtResource("2_mqby7")
+flip_h = true
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 2
+offset_left = 2010.95
+offset_top = 905.0
+offset_right = 2086.95
+offset_bottom = 939.0
+scale = Vector2(13.4977, 12.4827)
+
+[node name="ProgressBar" type="ProgressBar" parent="VBoxContainer2"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_l3qth")
+theme_override_styles/fill = SubResource("StyleBoxFlat_cy1k0")
+value = 50.0
+show_percentage = false
+
+[node name="health bar" type="Label" parent="VBoxContainer2/ProgressBar"]
+layout_mode = 0
+offset_left = 7.95427
+offset_top = -0.652012
+offset_right = 133.954
+offset_bottom = 22.348
+scale = Vector2(0.497926, 0.545785)
+theme_override_fonts/font = ExtResource("3_162bw")
+text = "hp: 50/100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EnemyName" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.249306, 0.189042, 0.197425, 1)
+theme_override_fonts/font = ExtResource("3_162bw")
+theme_override_font_sizes/font_size = 8
+text = "Player"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.201102, 0.228943, 0.255312, 1)
+theme_override_fonts/font = ExtResource("3_162bw")
+theme_override_font_sizes/font_size = 8
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 357.0
+offset_top = 113.0
+offset_right = 433.0
+offset_bottom = 153.0
+scale = Vector2(13.428, 13.5132)
+
+[node name="ProgressBar" type="ProgressBar" parent="VBoxContainer"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_l3qth")
+theme_override_styles/fill = SubResource("StyleBoxFlat_cy1k0")
+value = 50.0
+show_percentage = false
+
+[node name="health bar" type="Label" parent="VBoxContainer/ProgressBar"]
+layout_mode = 0
+offset_left = 7.95427
+offset_top = -0.652012
+offset_right = 133.954
+offset_bottom = 22.348
+scale = Vector2(0.497926, 0.545785)
+theme_override_fonts/font = ExtResource("3_162bw")
+text = "hp: 50/100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EnemyName" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.249306, 0.189042, 0.197425, 1)
+theme_override_fonts/font = ExtResource("3_162bw")
+theme_override_font_sizes/font_size = 8
+text = "dragonair
+"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.201102, 0.228943, 0.255312, 1)
+theme_override_fonts/font = ExtResource("3_162bw")
+theme_override_font_sizes/font_size = 8
+text = "Level 7 "
+horizontal_alignment = 1
+
+[node name="player" type="Panel" parent="."]
+layout_mode = 0
+offset_left = -203.0
+offset_top = 1396.0
+offset_right = -163.0
+offset_bottom = 1436.0
+scale = Vector2(97.4258, 13.8428)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="player"]
+layout_mode = 0
+offset_left = 4.43481
+offset_top = 26.2952
+offset_right = 496.435
+offset_bottom = 66.2952
+scale = Vector2(0.0617303, 0.365137)
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="Label2" type="Label" parent="player/HBoxContainer"]
+layout_mode = 2
+text = "spells"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="player/HBoxContainer"]
+layout_mode = 2
+text = "wardrobe"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="player/HBoxContainer"]
+layout_mode = 2
+text = "items"
+
+[node name="Label4" type="Label" parent="player/HBoxContainer"]
+layout_mode = 2
+text = "run"
+
+[node name="TextureButton" type="TextureButton" parent="player"]
+layout_mode = 0
+offset_left = 3.98372
+offset_top = 5.83634
+offset_right = 624.984
+offset_bottom = 706.836
+scale = Vector2(0.00582191, 0.0335383)
+texture_normal = ExtResource("4_d4iwf")
+
+[node name="TextureButton3" type="TextureButton" parent="player"]
+offset_left = 22.9494
+offset_top = 4.99652
+offset_right = 643.949
+offset_bottom = 705.997
+scale = Vector2(0.00582191, 0.0335383)
+texture_normal = ExtResource("4_d4iwf")
+
+[node name="TextureButton4" type="TextureButton" parent="player"]
+offset_left = 13.3951
+offset_top = 5.33605
+offset_right = 634.395
+offset_bottom = 706.336
+scale = Vector2(0.00582191, 0.0335383)
+texture_normal = ExtResource("4_d4iwf")
+
+[node name="TextureButton5" type="TextureButton" parent="player"]
+offset_left = 32.0038
+offset_top = 5.4902
+offset_right = 653.004
+offset_bottom = 706.49
+scale = Vector2(0.00582191, 0.0335383)
+texture_normal = ExtResource("4_d4iwf")
