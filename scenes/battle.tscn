@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://2uuwx015ta34"]
+[gd_scene load_steps=8 format=3 uid="uid://2uuwx015ta34"]
 
+[ext_resource type="Script" path="res://scenes/battle.gd" id="1_eifp1"]
 [ext_resource type="Texture2D" uid="uid://ut4mkvf1tfa" path="res://assets/battle scenes/simple-background-backgrounds-passion-simple-1-5c9b95bd34713.png" id="1_hekuk"]
 [ext_resource type="Texture2D" uid="uid://ce4dsy0eqgwpr" path="res://assets/battle scenes/Dragonair.webp" id="2_mqby7"]
 [ext_resource type="FontFile" uid="uid://crg0m6t5ftyak" path="res://assets/fonts/PixelOperator8.ttf" id="3_162bw"]
@@ -11,24 +12,26 @@ bg_color = Color(0.319703, 0.745308, 0, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cy1k0"]
 bg_color = Color(1, 0.284597, 0.560101, 1)
 
-[node name="Control" type="Control"]
-clip_contents = true
+[node name="battle" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 0.0270958
-offset_bottom = 0.0270996
+anchor_right = 0.999814
+anchor_bottom = 0.999814
+offset_right = 0.642822
+offset_bottom = 0.361694
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.878499, 0.878499)
+scale = Vector2(0.999814, 0.999814)
+size_flags_stretch_ratio = 3.53
+script = ExtResource("1_eifp1")
+metadata/_edit_use_anchors_ = true
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="bg" type="TextureRect" parent="."]
 layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
 scale = Vector2(1.81016, 1.84127)
 texture = ExtResource("1_hekuk")
+expand_mode = 2
 
 [node name="enemy" type="TextureRect" parent="."]
 layout_mode = 0
@@ -41,15 +44,15 @@ texture = ExtResource("2_mqby7")
 
 [node name="playerSprite" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 299.128
-offset_top = 756.564
-offset_right = 555.128
-offset_bottom = 1012.56
+offset_left = 613.393
+offset_top = 602.847
+offset_right = 869.393
+offset_bottom = 858.847
 scale = Vector2(3.65742, 3.59671)
 texture = ExtResource("2_mqby7")
 flip_h = true
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+[node name="player stats" type="VBoxContainer" parent="."]
 layout_mode = 2
 offset_left = 2010.95
 offset_top = 905.0
@@ -57,7 +60,7 @@ offset_right = 2086.95
 offset_bottom = 939.0
 scale = Vector2(13.4977, 12.4827)
 
-[node name="ProgressBar" type="ProgressBar" parent="VBoxContainer2"]
+[node name="ProgressBar" type="ProgressBar" parent="player stats"]
 custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_l3qth")
@@ -65,7 +68,7 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_cy1k0")
 value = 50.0
 show_percentage = false
 
-[node name="health bar" type="Label" parent="VBoxContainer2/ProgressBar"]
+[node name="health bar" type="Label" parent="player stats/ProgressBar"]
 layout_mode = 0
 offset_left = 7.95427
 offset_top = -0.652012
@@ -77,7 +80,7 @@ text = "hp: 50/100"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="EnemyName" type="Label" parent="VBoxContainer2"]
+[node name="EnemyName" type="Label" parent="player stats"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.249306, 0.189042, 0.197425, 1)
 theme_override_fonts/font = ExtResource("3_162bw")
@@ -85,14 +88,14 @@ theme_override_font_sizes/font_size = 8
 text = "Player"
 horizontal_alignment = 1
 
-[node name="Label" type="Label" parent="VBoxContainer2"]
+[node name="Label" type="Label" parent="player stats"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.201102, 0.228943, 0.255312, 1)
 theme_override_fonts/font = ExtResource("3_162bw")
 theme_override_font_sizes/font_size = 8
 horizontal_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="enemy stats" type="VBoxContainer" parent="."]
 layout_mode = 0
 offset_left = 357.0
 offset_top = 113.0
@@ -100,7 +103,7 @@ offset_right = 433.0
 offset_bottom = 153.0
 scale = Vector2(13.428, 13.5132)
 
-[node name="ProgressBar" type="ProgressBar" parent="VBoxContainer"]
+[node name="ProgressBar" type="ProgressBar" parent="enemy stats"]
 custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_l3qth")
@@ -108,7 +111,7 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_cy1k0")
 value = 50.0
 show_percentage = false
 
-[node name="health bar" type="Label" parent="VBoxContainer/ProgressBar"]
+[node name="health bar" type="Label" parent="enemy stats/ProgressBar"]
 layout_mode = 0
 offset_left = 7.95427
 offset_top = -0.652012
@@ -120,7 +123,7 @@ text = "hp: 50/100"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="EnemyName" type="Label" parent="VBoxContainer"]
+[node name="EnemyName" type="Label" parent="enemy stats"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.249306, 0.189042, 0.197425, 1)
 theme_override_fonts/font = ExtResource("3_162bw")
@@ -129,7 +132,7 @@ text = "dragonair
 "
 horizontal_alignment = 1
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="Label" type="Label" parent="enemy stats"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.201102, 0.228943, 0.255312, 1)
 theme_override_fonts/font = ExtResource("3_162bw")
@@ -137,7 +140,7 @@ theme_override_font_sizes/font_size = 8
 text = "Level 7 "
 horizontal_alignment = 1
 
-[node name="player" type="Panel" parent="."]
+[node name="action menu" type="Panel" parent="."]
 layout_mode = 0
 offset_left = -203.0
 offset_top = 1396.0
@@ -145,36 +148,36 @@ offset_right = -163.0
 offset_bottom = 1436.0
 scale = Vector2(97.4258, 13.8428)
 
-[node name="HBoxContainer" type="HBoxContainer" parent="player"]
+[node name="HBoxContainer" type="HBoxContainer" parent="action menu"]
 layout_mode = 0
-offset_left = 4.43481
-offset_top = 26.2952
-offset_right = 496.435
-offset_bottom = 66.2952
-scale = Vector2(0.0617303, 0.365137)
-theme_override_constants/separation = 100
+offset_left = 2.68361
+offset_top = 26.6424
+offset_right = 509.684
+offset_bottom = 66.6424
+scale = Vector2(0.0637721, 0.339754)
+theme_override_constants/separation = 87
 alignment = 1
 
-[node name="Label2" type="Label" parent="player/HBoxContainer"]
+[node name="Label2" type="Label" parent="action menu/HBoxContainer"]
 layout_mode = 2
-text = "spells"
+text = "     spells"
 horizontal_alignment = 1
 
-[node name="Label" type="Label" parent="player/HBoxContainer"]
+[node name="Label" type="Label" parent="action menu/HBoxContainer"]
 layout_mode = 2
 text = "wardrobe"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label3" type="Label" parent="player/HBoxContainer"]
+[node name="Label3" type="Label" parent="action menu/HBoxContainer"]
 layout_mode = 2
-text = "items"
+text = "  items"
 
-[node name="Label4" type="Label" parent="player/HBoxContainer"]
+[node name="Label4" type="Label" parent="action menu/HBoxContainer"]
 layout_mode = 2
-text = "run"
+text = "    run       "
 
-[node name="TextureButton" type="TextureButton" parent="player"]
+[node name="spells" type="TextureButton" parent="action menu"]
 layout_mode = 0
 offset_left = 3.98372
 offset_top = 5.83634
@@ -183,7 +186,7 @@ offset_bottom = 706.836
 scale = Vector2(0.00582191, 0.0335383)
 texture_normal = ExtResource("4_d4iwf")
 
-[node name="TextureButton3" type="TextureButton" parent="player"]
+[node name="items" type="TextureButton" parent="action menu"]
 offset_left = 22.9494
 offset_top = 4.99652
 offset_right = 643.949
@@ -191,7 +194,7 @@ offset_bottom = 705.997
 scale = Vector2(0.00582191, 0.0335383)
 texture_normal = ExtResource("4_d4iwf")
 
-[node name="TextureButton4" type="TextureButton" parent="player"]
+[node name="wardrobe" type="TextureButton" parent="action menu"]
 offset_left = 13.3951
 offset_top = 5.33605
 offset_right = 634.395
@@ -199,10 +202,43 @@ offset_bottom = 706.336
 scale = Vector2(0.00582191, 0.0335383)
 texture_normal = ExtResource("4_d4iwf")
 
-[node name="TextureButton5" type="TextureButton" parent="player"]
+[node name="run" type="TextureButton" parent="action menu"]
 offset_left = 32.0038
 offset_top = 5.4902
 offset_right = 653.004
 offset_bottom = 706.49
 scale = Vector2(0.00582191, 0.0335383)
 texture_normal = ExtResource("4_d4iwf")
+
+[node name="textbox" type="Panel" parent="."]
+layout_mode = 0
+offset_left = -62.1721
+offset_top = 1383.2
+offset_right = -22.1721
+offset_bottom = 1423.2
+scale = Vector2(90.0155, 15.4734)
+
+[node name="Label" type="Label" parent="textbox"]
+layout_mode = 0
+offset_left = 1.78357
+offset_top = 4.41523
+offset_right = 393.784
+offset_bottom = 27.4152
+scale = Vector2(0.0720902, 0.480185)
+theme_override_fonts/font = ExtResource("3_162bw")
+text = "A wild Dragonair has appeared! "
+
+[node name="Label2" type="Label" parent="textbox"]
+layout_mode = 0
+offset_left = 34.3811
+offset_top = 20.0892
+offset_right = 74.3811
+offset_bottom = 43.0892
+scale = Vector2(0.0994476, 0.659629)
+text = ">"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[connection signal="ready" from="." to="." method="_on_ready"]
+[connection signal="pressed" from="action menu/wardrobe" to="." method="_on_wardrobe_pressed"]
+[connection signal="pressed" from="action menu/run" to="." method="_on_run_pressed"]
